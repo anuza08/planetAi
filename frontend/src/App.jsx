@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import UploadPDF from "./components/UploadPDF";
 import AskQuestion from "./components/AskQuestion";
+
 const App = () => {
   const [documentId, setDocumentId] = useState(null);
 
   return (
-    <div>
-      <h1>PDF Q&A</h1>
+    <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
       <UploadPDF onUploadSuccess={setDocumentId} />
-      {documentId && <AskQuestion documentId={documentId} />}
+      <div style={{ flex: 1 }} />
+      <AskQuestion documentId={documentId} />
     </div>
   );
 };
