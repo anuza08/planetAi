@@ -1,0 +1,158 @@
+2024-10-27 14:15:58,691 - main - INFO - Uploaded file size: 226450 bytes
+2024-10-27 14:15:58,746 - main - INFO - Extracted text length: 2827 characters
+2024-10-27 14:15:58,746 - main - INFO - Document uploaded with ID: 1
+2024-10-27 14:16:10,751 - main - ERROR - OpenAI API key not found.
+2024-10-27 14:16:10,751 - main - ERROR - Error during question processing
+Traceback (most recent call last):
+  File "D:\reactProject\planetAi\backend\main.py", line 100, in ask_question
+    raise HTTPException(status_code=500, detail="API key missing.")
+fastapi.exceptions.HTTPException: 500: API key missing.
+2024-10-27 14:20:20,747 - main - INFO - Uploaded file size: 226450 bytes
+2024-10-27 14:20:20,770 - main - INFO - Extracted text length: 2827 characters
+2024-10-27 14:20:20,771 - main - INFO - Document uploaded with ID: 1
+2024-10-27 14:20:34,464 - main - ERROR - Error during question processing
+Traceback (most recent call last):
+  File "D:\reactProject\planetAi\backend\main.py", line 109, in ask_question
+    answer = await chain.arun({"question": request.question, "text_chunks": text_chunks})
+                   ^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\pydantic\main.py", line 856, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'RunnableSequence' object has no attribute 'arun'
+2024-10-27 14:21:48,786 - main - INFO - Uploaded file size: 226450 bytes
+2024-10-27 14:21:48,807 - main - INFO - Extracted text length: 2827 characters
+2024-10-27 14:21:48,807 - main - INFO - Document uploaded with ID: 1
+2024-10-27 14:22:01,563 - main - ERROR - Error during question processing
+Traceback (most recent call last):
+  File "D:\reactProject\planetAi\backend\main.py", line 109, in ask_question
+    answer = await chain.acall({"question": request.question, "text_chunks": text_chunks})
+                   ^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\pydantic\main.py", line 856, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'RunnableSequence' object has no attribute 'acall'
+2024-10-27 14:24:15,228 - main - INFO - Uploaded file size: 226450 bytes
+2024-10-27 14:24:15,246 - main - INFO - Extracted text length: 2827 characters
+2024-10-27 14:24:15,246 - main - INFO - Document uploaded with ID: 1
+2024-10-27 14:24:25,304 - main - ERROR - Error during question processing
+Traceback (most recent call last):
+  File "D:\reactProject\planetAi\backend\main.py", line 109, in ask_question
+    answer = chain.run({"question": request.question, "text_chunks": text_chunks})
+             ^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\pydantic\main.py", line 856, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'RunnableSequence' object has no attribute 'run'
+2024-10-27 14:30:50,749 - main - INFO - Uploaded file size: 226450 bytes
+2024-10-27 14:30:50,769 - main - INFO - Extracted text length: 2827 characters
+2024-10-27 14:30:50,769 - main - INFO - Document uploaded with ID: 2
+2024-10-27 14:30:57,554 - main - ERROR - Document with ID 2 not found.
+2024-10-27 14:39:01,694 - main - INFO - Uploaded file size: 226450 bytes
+2024-10-27 14:39:01,738 - main - INFO - Extracted text length: 2827 characters
+2024-10-27 14:39:01,738 - main - INFO - Document uploaded with ID: 1
+2024-10-27 14:39:09,878 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2024-10-27 14:39:09,878 - openai._base_client - INFO - Retrying request to /completions in 0.441867 seconds
+2024-10-27 14:39:11,280 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2024-10-27 14:39:11,281 - openai._base_client - INFO - Retrying request to /completions in 0.792014 seconds
+2024-10-27 14:39:12,486 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2024-10-27 14:39:12,494 - main - ERROR - Error during question processing
+Traceback (most recent call last):
+  File "D:\reactProject\planetAi\backend\main.py", line 118, in ask_question
+    answer = await chain.ainvoke({"question": request.question, "text_chunks": text_chunks})
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\langchain_core\runnables\base.py", line 3066, in ainvoke
+    input = await asyncio.create_task(part(), context=context)  # type: ignore
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\langchain_core\language_models\llms.py", line 413, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\langchain_core\language_models\llms.py", line 765, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\langchain_core\language_models\llms.py", line 1190, in agenerate
+    output = await self._agenerate_helper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\langchain_core\language_models\llms.py", line 1030, in _agenerate_helper
+    raise e
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\langchain_core\language_models\llms.py", line 1014, in _agenerate_helper
+    await self._agenerate(
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\langchain_openai\llms\base.py", line 409, in _agenerate
+    response = await self.async_client.create(prompt=_prompts, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\resources\completions.py", line 1081, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1838, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1532, in request
+    return await self._request(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1618, in _request
+    return await self._retry_request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1665, in _retry_request
+    return await self._request(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1618, in _request
+    return await self._retry_request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1665, in _retry_request
+    return await self._request(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1633, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2024-10-27 14:39:50,124 - main - INFO - Uploaded file size: 226450 bytes
+2024-10-27 14:39:50,131 - main - INFO - Extracted text length: 2827 characters
+2024-10-27 14:39:50,140 - main - INFO - Document uploaded with ID: 2
+2024-10-27 14:40:07,911 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2024-10-27 14:40:07,911 - openai._base_client - INFO - Retrying request to /completions in 0.396484 seconds
+2024-10-27 14:40:08,741 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2024-10-27 14:40:08,741 - openai._base_client - INFO - Retrying request to /completions in 0.947402 seconds
+2024-10-27 14:40:10,128 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2024-10-27 14:40:10,130 - main - ERROR - Error during question processing
+Traceback (most recent call last):
+  File "D:\reactProject\planetAi\backend\main.py", line 118, in ask_question
+    answer = await chain.ainvoke({"question": request.question, "text_chunks": text_chunks})
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\langchain_core\runnables\base.py", line 3066, in ainvoke
+    input = await asyncio.create_task(part(), context=context)  # type: ignore
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\langchain_core\language_models\llms.py", line 413, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\langchain_core\language_models\llms.py", line 765, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\langchain_core\language_models\llms.py", line 1190, in agenerate
+    output = await self._agenerate_helper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\langchain_core\language_models\llms.py", line 1030, in _agenerate_helper
+    raise e
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\langchain_core\language_models\llms.py", line 1014, in _agenerate_helper
+    await self._agenerate(
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\langchain_openai\llms\base.py", line 409, in _agenerate
+    response = await self.async_client.create(prompt=_prompts, **params)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\resources\completions.py", line 1081, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1838, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1532, in request
+    return await self._request(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1618, in _request
+    return await self._retry_request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1665, in _retry_request
+    return await self._request(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1618, in _request
+    return await self._retry_request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1665, in _retry_request
+    return await self._request(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1633, in _request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
