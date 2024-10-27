@@ -6,11 +6,23 @@ const AskQuestion = ({ documentId }) => {
   const [answer, setAnswer] = useState("");
 
   const handleAskQuestion = async () => {
+    debugger;
+    console.log("Document ID:", documentId);
+    console.log("Question:", question);
+
     try {
-      const response = await axios.post("http://localhost:8000/ask_question", {
-        document_id: documentId,
-        question: question,
-      });
+      const response = await axios.post(
+        "http://localhost:8000/ask_question",
+        {
+          document_id: documentId,
+          question: question,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       setAnswer(response.data.answer);
     } catch (error) {
       console.error("Error fetching answer", error);
