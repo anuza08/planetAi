@@ -183,3 +183,57 @@ openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded you
 2024-10-27 19:50:06,320 - main - INFO - Uploaded file size: 705039 bytes
 2024-10-27 19:50:06,382 - main - INFO - Extracted text length: 20120 characters
 2024-10-27 19:50:06,385 - main - INFO - Document uploaded with ID: 1
+2024-10-27 20:10:52,793 - main - INFO - Uploaded file size: 705039 bytes
+2024-10-27 20:10:53,095 - main - INFO - Extracted text length: 20120 characters
+2024-10-27 20:10:53,249 - main - INFO - Document uploaded with ID: 2
+2024-10-27 20:12:22,339 - main - INFO - Uploaded file size: 705039 bytes
+2024-10-27 20:12:22,446 - main - INFO - Extracted text length: 20120 characters
+2024-10-27 20:12:22,461 - main - INFO - Document uploaded with ID: 3
+2024-10-27 20:17:10,105 - main - INFO - Uploaded file size: 410790 bytes
+2024-10-27 20:17:10,237 - main - INFO - Extracted text length: 19130 characters
+2024-10-27 20:17:10,246 - main - INFO - Document uploaded with ID: 4
+2024-10-27 20:52:23,024 - main - INFO - Uploaded file size: 593258 bytes
+2024-10-27 20:52:23,081 - main - INFO - Extracted text length: 15357 characters
+2024-10-27 20:52:23,103 - main - INFO - Document uploaded with ID: 5
+2024-10-27 20:52:41,798 - main - INFO - Uploaded file size: 154938 bytes
+2024-10-27 20:52:41,813 - main - INFO - Extracted text length: 1980 characters
+2024-10-27 20:52:41,818 - main - INFO - Document uploaded with ID: 6
+2024-10-27 21:01:47,463 - main - INFO - Uploaded file size: 598898 bytes
+2024-10-27 21:01:47,501 - main - INFO - Extracted text length: 17325 characters
+2024-10-27 21:01:47,506 - main - INFO - Document uploaded with ID: 7
+2024-10-27 21:09:41,861 - main - ERROR - Error during question processing
+Traceback (most recent call last):
+  File "D:\reactProject\planetAi\backend\main.py", line 120, in ask_question
+    result = qa_pipeline(question=request.question, context=chunk)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\transformers\pipelines\question_answering.py", line 396, in __call__
+    examples = self._args_parser(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\transformers\pipelines\question_answering.py", line 227, in __call__
+    inputs[i] = self.normalize(item)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\transformers\pipelines\question_answering.py", line 169, in normalize
+    raise ValueError(f"`{k}` cannot be empty")
+ValueError: `question` cannot be empty
+2024-10-27 21:10:41,010 - main - INFO - Uploaded file size: 151905 bytes
+2024-10-27 21:10:41,021 - main - INFO - Extracted text length: 1973 characters
+2024-10-27 21:10:41,025 - main - INFO - Document uploaded with ID: 8
+2024-10-27 21:15:49,427 - main - INFO - Uploaded file size: 151058 bytes
+2024-10-27 21:15:49,442 - main - INFO - Extracted text length: 1973 characters
+2024-10-27 21:15:49,446 - main - INFO - Document uploaded with ID: 9
+2024-10-27 21:15:50,633 - main - ERROR - Error during question processing
+Traceback (most recent call last):
+  File "D:\reactProject\planetAi\backend\main.py", line 120, in ask_question
+    result = qa_pipeline(question=request.question, context=chunk)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\transformers\pipelines\question_answering.py", line 396, in __call__
+    examples = self._args_parser(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\transformers\pipelines\question_answering.py", line 227, in __call__
+    inputs[i] = self.normalize(item)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "d:\reactProject\planetAi\.venv\Lib\site-packages\transformers\pipelines\question_answering.py", line 169, in normalize
+    raise ValueError(f"`{k}` cannot be empty")
+ValueError: `question` cannot be empty
+2024-10-27 21:23:57,913 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2024-10-27 21:23:57,914 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
