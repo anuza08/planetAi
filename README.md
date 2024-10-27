@@ -17,4 +17,42 @@ Q&A Planet is a AI platform where you can upload any document and ask question r
 <h4> xt Processing</h4>Te: LangChain for text splitting, Hugging Face transformers and Sentence Transformers for NLP tasks
 <h4> Database Management</h4>: SQLAlchemy ORM
 
+## Installation
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Copy the proejct url
+
+<h4>Frontend</h4>
+
+```bash
+cd ./frontend
+```
+```bash
+npm install
+```
+and the frontend server will start
+
+<h4>Backend Server</h4>
+
+```bash
+cd ./backend
+```
+
+To install all the dependencies
+```bash
+pip install fastapi uvicorn sqlalchemy pymupdf langchain transformers sentence-transformers fastapi[all]
+```
+To run the backend server 
+```bash
+uvicorn main:app --reload
+```
+
+the server will run at port 
+```bash
+http://127.0.0.1:8000/docs#/
+```
+
+
+
+
 
