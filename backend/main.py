@@ -10,10 +10,10 @@ from sqlalchemy.orm import Session
 from database import SessionLocal, engine, get_db
 from models import Document, QuestionAnswer
 
-# Create the database tables
+
 Document.metadata.create_all(bind=engine)
 
-# Configure logging
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -25,10 +25,10 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__) 
 
-# Initialize FastAPI app
+
 app = FastAPI()
 
-# CORS configuration
+
 origins = [
     "http://localhost:5175",
     "http://localhost:3000",
@@ -43,7 +43,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# In-memory storage for documents
+
 documents = {}
 last_document_id = None  
 
@@ -75,13 +75,13 @@ async def upload_pdf(file: UploadFile = File(...), title: str = None, db: Sessio
         raise HTTPException(status_code=400, detail="Failed to read the PDF document.")
 
     if pdf_text:
-        # Save to database
+      
         document = Document(title=title if title else "Untitled Document", text=pdf_text)
         db.add(document)
         db.commit()
         db.refresh(document)
         
-        # Use the ID from the database instead of a simple counter
+       
         last_document_id = document.id
         documents[last_document_id] = pdf_text
         logger.info(f"Document uploaded with ID: {last_document_id}")
@@ -130,7 +130,7 @@ async def ask_question(request: QuestionRequest, db: Session = Depends(get_db)):
 
         final_answer = best_rerank_answer if rerank_scores else best_answer[0]
 
-        # Save the question and answer to the database
+      
         qa_entry = QuestionAnswer(document_id=doc_id, question=request.question, answer=final_answer)
         db.add(qa_entry)
         db.commit()
@@ -154,10 +154,10 @@ def get_questions_answers(document_id: int, db: Session = Depends(get_db)):
 @app.get("/documents")
 async def get_all_documents(db: Session = Depends(get_db)):
     try:
-        # Query all documents from the database
+       
         documents = db.query(Document).all()
 
-        # Prepare a response with documents and their question-answers
+       
         response = []
         for doc in documents:
             qa_list = [
@@ -167,7 +167,7 @@ async def get_all_documents(db: Session = Depends(get_db)):
             response.append({
                 "document_id": doc.id,
                 "title": doc.title,
-                "text": doc.text,  # Optionally include the text
+                "text": doc.text,  
                 "questions_answers": qa_list,
             })
 

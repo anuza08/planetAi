@@ -119,7 +119,7 @@ const styles = {
   },
   questionContainer: {
     position: "fixed",
-    bottom: "20px",
+    bottom: "60px",
     left: "20px",
     right: "20px",
     display: "flex",
@@ -127,7 +127,7 @@ const styles = {
     backgroundColor: "#f9f9f9",
     boxShadow: "0px -2px 5px rgba(0, 0, 0, 0.1)",
     borderRadius: "8px",
-    maxWidth: "800px",
+    maxWidth: "1000px",
     margin: "0 auto",
   },
   input: {
