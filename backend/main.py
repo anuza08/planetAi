@@ -2,6 +2,7 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import fitz
+from langchain.prompts import PromptTemplate
 from langchain_openai import OpenAI
 from langchain.chains import LLMChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -64,36 +65,35 @@ async def upload_pdf(file: UploadFile = File(...)):
 
 @app.post("/ask_question")
 async def ask_question(request: QuestionRequest):
-    global last_document_id  # Access the global variable
-    doc_id = request.document_id or last_document_id  # Use provided ID or fallback to last ID
+    global last_document_id
+    doc_id = request.document_id or last_document_id
     pdf_text = documents.get(doc_id)
     
     if pdf_text is None:
         print(f"Document with ID {doc_id} not found in the documents dictionary.")
-        print(f"Current documents dictionary: {documents}")  # Log current state for debugging
+        print(f"Current documents dictionary: {documents}")
         return {"error": "Document not found."}
 
     try:
         # Initialize the text splitter and LLM
-        splitter = RecursiveCharacterTextSplitter()  # Initialize the text splitter
-        text_chunks = splitter.split_text(pdf_text)  # Split the PDF text into manageable chunks
+        splitter = RecursiveCharacterTextSplitter()
+        text_chunks = splitter.split_text(pdf_text)
 
         # Initialize the LLM with necessary parameters
         llm = OpenAI(openai_api_key="your_openai_api_key")  # Ensure API key is set
 
-        # Create the prompt template and LLMChain
-        prompt_template = {"text": "Answer the following question based on provided context."}
+        # Create the prompt template using PromptTemplate
+        prompt_template = PromptTemplate(
+            input_variables=["question", "text_chunks"],
+            template="Answer the following question based on the provided context: {text_chunks}\nQuestion: {question}"
+        )
+
+        # Create the LLMChain
         chain = LLMChain(llm=llm, prompt=prompt_template)
 
-        # Construct inputs for the chain
-        inputs = {
-            "question": request.question,
-            "text_chunks": text_chunks
-        }
-
         # Generate the answer
-        answer = await chain.apredict(inputs)
-        
+        answer = await chain.apredict({"question": request.question, "text_chunks": text_chunks})
+
         return {"answer": answer}
     except Exception as e:
         print(f"Error: {e}")
