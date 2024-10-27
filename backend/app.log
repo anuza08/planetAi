@@ -156,3 +156,6 @@ Traceback (most recent call last):
   File "d:\reactProject\planetAi\.venv\Lib\site-packages\openai\_base_client.py", line 1633, in _request
     raise self._make_status_error_from_response(err.response) from None
 openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2024-10-27 15:11:29,079 - main - INFO - Uploaded file size: 226450 bytes
+2024-10-27 15:11:29,129 - main - INFO - Extracted text length: 2827 characters
+2024-10-27 15:11:29,129 - main - INFO - Document uploaded with ID: 1
