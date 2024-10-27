@@ -99,5 +99,47 @@ http://localhost:8000
   }
 
 
+### 2. Ask a Question
 
+- **Endpoint:** `/ask_question`
+- **Method:** `POST`
+- **Description:** Submit a question related to the uploaded document and receive an answer.
 
+#### Request
+
+- **Headers:**
+  - `Content-Type`: `application/json`
+
+- **Body:**
+  - `document_id`: The ID of the document to ask questions about.
+  - `question`: The question to be asked.
+ 
+  #### Response
+- **Status Code:** `200 OK`
+- **Response Body:**
+  ```json
+  {
+    "answer": "string" // The answer to the asked question.
+  }
+
+### 3. Get Document Questions
+
+- **Endpoint:** `/document/{document_id}/questions`
+- **Method:** `GET`
+- **Description:** Retrieve a list of questions and answers associated with a specific document.
+
+#### Request
+
+- **Path Parameters:**
+  - `document_id`: The ID of the document for which questions are retrieved (required).
+
+  #### Response
+- **Status Code:** `200 OK`
+- **Response Body:**
+  ```json
+  [
+    {
+      "question": "string", // The question asked.
+       "answer": "string"     // The answer provided.
+     }
+  ] 
