@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import icon from "../assets/icon.png";
+import loader from "../assets/loader.gif"; // Import the loader GIF
 
 const AskQuestion = ({ documentId }) => {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
+  const [loading, setLoading] = useState(false); // Loading state
 
   useEffect(() => {
     const fetchChatHistory = async () => {
@@ -23,6 +25,7 @@ const AskQuestion = ({ documentId }) => {
   }, [documentId]);
 
   const handleAskQuestion = async () => {
+    setLoading(true); // Set loading to true when starting the request
     try {
       const response = await axios.post("http://localhost:8000/ask_question", {
         document_id: documentId,
@@ -37,6 +40,8 @@ const AskQuestion = ({ documentId }) => {
       setQuestion("");
     } catch (error) {
       console.error("Error fetching answer", error);
+    } finally {
+      setLoading(false); // Set loading to false when request completes
     }
   };
 
@@ -52,6 +57,11 @@ const AskQuestion = ({ documentId }) => {
             </div>
           </div>
         ))}
+        {loading && (
+          <div style={styles.loadingContainer}>
+            <img src={loader} alt="Loading..." style={styles.loader} />
+          </div>
+        )}
       </div>
 
       <div style={styles.questionContainer}>
@@ -61,10 +71,15 @@ const AskQuestion = ({ documentId }) => {
           onChange={(e) => setQuestion(e.target.value)}
           placeholder="Ask a question..."
           style={styles.input}
+          disabled={loading} // Disable input while loading
         />
         {documentId && (
-          <button onClick={handleAskQuestion} style={styles.button}>
-            Ask
+          <button
+            onClick={handleAskQuestion}
+            style={styles.button}
+            disabled={loading} // Disable button while loading
+          >
+            {loading ? "Loading..." : "Ask"}
           </button>
         )}
       </div>
@@ -116,6 +131,14 @@ const styles = {
     backgroundColor: "#fff3e0",
     padding: "10px",
     borderRadius: "10px",
+  },
+  loadingContainer: {
+    display: "flex",
+    justifyContent: "center",
+    padding: "10px",
+  },
+  loader: {
+    width: "50px", // Adjust size as needed
   },
   questionContainer: {
     position: "fixed",

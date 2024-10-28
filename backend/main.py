@@ -90,7 +90,7 @@ async def upload_pdf(file: UploadFile = File(...), title: str = None, db: Sessio
         logger.warning("No text extracted from PDF.")
         raise HTTPException(status_code=400, detail="No text found in the PDF document.")
 
-qa_pipeline = pipeline("question-answering", model="bert-large-uncased-whole-word-masking-finetuned-squad")
+qa_pipeline = pipeline("text2text-generation", model="google/flan-t5-large")
 rerank_model = SentenceTransformer('all-MiniLM-L6-v2')  
 
 @app.post("/ask_question")
@@ -108,6 +108,7 @@ async def ask_question(request: QuestionRequest, db: Session = Depends(get_db)):
     pdf_text = documents[doc_id]
 
     try:
+        # Split the text into chunks as needed
         splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=100)
         text_chunks = splitter.split_text(pdf_text)
 
@@ -115,22 +116,16 @@ async def ask_question(request: QuestionRequest, db: Session = Depends(get_db)):
             logger.error("No chunks created from PDF text.")
             raise HTTPException(status_code=500, detail="No text chunks created from the document.")
 
-        candidate_answers = []
+        # Use the larger model to get a detailed answer
+        answer_texts = []
         for chunk in text_chunks:
-            result = qa_pipeline(question=request.question, context=chunk)
-            candidate_answers.append((result["answer"], result["score"], chunk))
+            result = qa_pipeline(f"Question: {request.question}\nContext: {chunk}")
+            answer_texts.append(result[0]["generated_text"])  # Store generated answers from each chunk
 
-        best_answer = max(candidate_answers, key=lambda x: x[1])
+        # Combine results and potentially rerank or summarize if needed
+        final_answer = " ".join(answer_texts)  # Optionally, further process to select the best responses
 
-        query_embedding = rerank_model.encode(request.question, convert_to_tensor=True)
-        answer_embeddings = [rerank_model.encode(answer[0], convert_to_tensor=True) for answer in candidate_answers]
-        rerank_scores = [util.pytorch_cos_sim(query_embedding, ans_emb).item() for ans_emb in answer_embeddings]
-
-        best_rerank_answer = candidate_answers[rerank_scores.index(max(rerank_scores))][0]
-
-        final_answer = best_rerank_answer if rerank_scores else best_answer[0]
-
-      
+        # Save the QA pair in the database
         qa_entry = QuestionAnswer(document_id=doc_id, question=request.question, answer=final_answer)
         db.add(qa_entry)
         db.commit()
@@ -141,6 +136,7 @@ async def ask_question(request: QuestionRequest, db: Session = Depends(get_db)):
     except Exception as e:
         logger.exception("Error during question processing")
         raise HTTPException(status_code=500, detail="An error occurred while processing the question.")
+
 
 @app.get("/document/{document_id}/questions", response_model=list[QuestionsAndAnswersResponse])
 def get_questions_answers(document_id: int, db: Session = Depends(get_db)):

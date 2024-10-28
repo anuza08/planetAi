@@ -237,3 +237,32 @@ Traceback (most recent call last):
 ValueError: `question` cannot be empty
 2024-10-27 21:23:57,913 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
 2024-10-27 21:23:57,914 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2024-10-28 12:43:28,057 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2024-10-28 12:43:28,057 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2024-10-28 12:43:33,707 - main - INFO - Uploaded file size: 103812 bytes
+2024-10-28 12:43:33,752 - main - INFO - Extracted text length: 2978 characters
+2024-10-28 12:43:33,764 - main - INFO - Document uploaded with ID: 10
+2024-10-28 12:45:23,543 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2024-10-28 12:45:23,543 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2024-10-28 12:46:10,559 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2024-10-28 12:46:10,560 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2024-10-28 12:46:24,350 - main - ERROR - Document with ID 10 not found. Available IDs: []
+2024-10-28 12:46:43,159 - main - ERROR - Document with ID 10 not found. Available IDs: []
+2024-10-28 12:46:54,131 - main - INFO - Uploaded file size: 103812 bytes
+2024-10-28 12:46:54,178 - main - INFO - Extracted text length: 2978 characters
+2024-10-28 12:46:54,187 - main - INFO - Document uploaded with ID: 11
+2024-10-28 12:49:32,963 - main - INFO - Uploaded file size: 103812 bytes
+2024-10-28 12:49:33,063 - main - INFO - Extracted text length: 2978 characters
+2024-10-28 12:49:33,080 - main - INFO - Document uploaded with ID: 12
+2024-10-28 12:53:03,689 - main - INFO - Uploaded file size: 161343 bytes
+2024-10-28 12:53:03,734 - main - INFO - Extracted text length: 2068 characters
+2024-10-28 12:53:03,741 - main - INFO - Document uploaded with ID: 13
+2024-10-28 12:57:12,941 - main - INFO - Uploaded file size: 161343 bytes
+2024-10-28 12:57:12,967 - main - INFO - Extracted text length: 2068 characters
+2024-10-28 12:57:12,980 - main - INFO - Document uploaded with ID: 14
+2024-10-28 12:58:50,638 - main - INFO - Uploaded file size: 161343 bytes
+2024-10-28 12:58:50,701 - main - INFO - Extracted text length: 2068 characters
+2024-10-28 12:58:50,704 - main - INFO - Document uploaded with ID: 15
+2024-10-28 12:59:05,534 - main - INFO - Uploaded file size: 705039 bytes
+2024-10-28 12:59:05,571 - main - INFO - Extracted text length: 20120 characters
+2024-10-28 12:59:05,577 - main - INFO - Document uploaded with ID: 16
