@@ -1,5 +1,5 @@
 # 🌌 Q&A Planet
-<img src="[https://github.com/user-attachments/assets/949a21cf-6e9e-48d0-bc7c-8873e0e70987](https://github.com/user-attachments/assets/b276b74b-c6be-49e2-9f41-39b655f615fa)" alt="Screenshot 2024-10-27 212211" width="500"/>
+<img src="https://github.com/user-attachments/assets/b276b74b-c6be-49e2-9f41-39b655f615fa" alt="Screenshot 2024-10-27 212211" width="500"/>
 <img src="https://github.com/user-attachments/assets/949a21cf-6e9e-48d0-bc7c-8873e0e70987" alt="Screenshot 2024-10-27 212211" width="500"/>
 <img src="https://github.com/user-attachments/assets/34c9f975-7401-409e-9479-eb04caf239c1" alt="Screenshot 2024-10-27 212211" width="500"/>
 <img src="https://github.com/user-attachments/assets/3cae8018-02c1-4700-bd3b-acf4918a922a" alt="Screenshot 2024-10-27 212211" width="500"/>
