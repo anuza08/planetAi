@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import icon from "../assets/icon.png";
-import loader from "../assets/loader.gif"; // Import the loader GIF
+import loader from "../assets/loader.gif"; 
 
 const AskQuestion = ({ documentId }) => {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchChatHistory = async () => {
@@ -73,7 +73,7 @@ const AskQuestion = ({ documentId }) => {
           style={styles.input}
           disabled={loading} // Disable input while loading
         />
-        {documentId && (
+        {documentId && question && (
           <button
             onClick={handleAskQuestion}
             style={styles.button}
@@ -138,7 +138,7 @@ const styles = {
     padding: "10px",
   },
   loader: {
-    width: "50px", // Adjust size as needed
+    width: "50px", 
   },
   questionContainer: {
     position: "fixed",
