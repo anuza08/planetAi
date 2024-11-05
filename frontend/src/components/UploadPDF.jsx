@@ -19,7 +19,12 @@ const UploadPDF = ({ onUploadSuccess }) => {
     try {
       const response = await axios.post(
         "http://localhost:8000/upload_pdf",
-        formData
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
       onUploadSuccess(response.data.document_id);
     } catch (error) {

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException, Depends
+from fastapi import FastAPI, File, UploadFile, HTTPException, Depends, Form
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import fitz  # PyMuPDF
@@ -56,10 +56,10 @@ class QuestionsAndAnswersResponse(BaseModel):
     answer: str
 
 @app.post("/upload_pdf")
-async def upload_pdf(file: UploadFile = File(...), title: str = None, db: Session = Depends(get_db)):
+async def upload_pdf(file: UploadFile = File(...), title: str = Form(...),db: Session = Depends(get_db)):
     global last_document_id  
     pdf_text = ""
-    print(file)
+    logger.info(f"Received title: {title}")
     try:
         pdf_content = await file.read()  
         logger.info(f"Uploaded file size: {len(pdf_content)} bytes")
@@ -118,7 +118,7 @@ async def ask_question(request: QuestionRequest, db: Session = Depends(get_db)):
         # Use the larger model to get a detailed answer
         answer_texts = []
         for chunk in text_chunks:
-            result = qa_pipeline(f"Question: {request.question}\nContext: {chunk}")
+            result = qa_pipeline(f"Question: {request.question}\nContext: {chunk}",max_new_tokens=100)
             answer_texts.append(result[0]["generated_text"])  # Store generated answers from each chunk
 
         # Combine results and potentially rerank or summarize if needed

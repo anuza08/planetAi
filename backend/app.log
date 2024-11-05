@@ -288,3 +288,32 @@ ValueError: `question` cannot be empty
 2024-11-05 13:14:26,957 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
 2024-11-05 13:14:45,107 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
 2024-11-05 13:14:45,107 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2024-11-05 13:15:10,913 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2024-11-05 13:15:10,913 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2024-11-05 13:15:14,525 - main - INFO - Uploaded file size: 226367 bytes
+2024-11-05 13:15:14,615 - main - INFO - Extracted text length: 2800 characters
+2024-11-05 13:15:14,631 - main - INFO - Document uploaded with ID: 21
+2024-11-05 13:21:00,277 - main - INFO - Uploaded file size: 1321225 bytes
+2024-11-05 13:21:00,515 - main - INFO - Extracted text length: 372 characters
+2024-11-05 13:21:00,629 - main - INFO - Document uploaded with ID: 22
+2024-11-05 13:23:02,617 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2024-11-05 13:23:02,617 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2024-11-05 13:23:25,631 - main - INFO - Uploaded file size: 1321225 bytes
+2024-11-05 13:23:25,705 - main - INFO - Extracted text length: 372 characters
+2024-11-05 13:23:25,730 - main - INFO - Document uploaded with ID: 23
+2024-11-05 13:26:18,350 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2024-11-05 13:26:18,350 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2024-11-05 13:27:26,088 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2024-11-05 13:27:26,088 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2024-11-05 13:27:30,715 - main - INFO - Received title: None
+2024-11-05 13:27:30,715 - main - INFO - Uploaded file size: 1321225 bytes
+2024-11-05 13:27:30,790 - main - INFO - Extracted text length: 372 characters
+2024-11-05 13:27:30,814 - main - INFO - Document uploaded with ID: 24
+2024-11-05 13:27:38,331 - main - INFO - Received title: None
+2024-11-05 13:27:38,332 - main - INFO - Uploaded file size: 1321225 bytes
+2024-11-05 13:27:38,342 - main - INFO - Extracted text length: 372 characters
+2024-11-05 13:27:38,354 - main - INFO - Document uploaded with ID: 25
+2024-11-05 13:30:04,568 - main - INFO - Received title: None
+2024-11-05 13:30:04,571 - main - INFO - Uploaded file size: 1321225 bytes
+2024-11-05 13:30:04,578 - main - INFO - Extracted text length: 372 characters
+2024-11-05 13:30:04,589 - main - INFO - Document uploaded with ID: 26
