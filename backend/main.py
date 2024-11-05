@@ -4,10 +4,10 @@ from pydantic import BaseModel
 import fitz  # PyMuPDF
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from transformers import pipeline
-from sentence_transformers import SentenceTransformer, util
+from sentence_transformers import SentenceTransformer
 import logging
 from sqlalchemy.orm import Session
-from database import SessionLocal, engine, get_db
+from database import engine, get_db
 from models import Document, QuestionAnswer
 
 
@@ -59,7 +59,7 @@ class QuestionsAndAnswersResponse(BaseModel):
 async def upload_pdf(file: UploadFile = File(...), title: str = None, db: Session = Depends(get_db)):
     global last_document_id  
     pdf_text = ""
-
+    print(file)
     try:
         pdf_content = await file.read()  
         logger.info(f"Uploaded file size: {len(pdf_content)} bytes")
@@ -80,7 +80,6 @@ async def upload_pdf(file: UploadFile = File(...), title: str = None, db: Sessio
         db.add(document)
         db.commit()
         db.refresh(document)
-        
        
         last_document_id = document.id
         documents[last_document_id] = pdf_text
@@ -149,11 +148,9 @@ def get_questions_answers(document_id: int, db: Session = Depends(get_db)):
 
 @app.get("/documents")
 async def get_all_documents(db: Session = Depends(get_db)):
-    try:
-       
+    try:   
         documents = db.query(Document).all()
 
-       
         response = []
         for doc in documents:
             qa_list = [

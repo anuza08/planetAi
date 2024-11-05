@@ -10,8 +10,11 @@ const UploadPDF = ({ onUploadSuccess }) => {
   };
 
   const handleUpload = async () => {
+    debugger;
     const formData = new FormData();
     formData.append("file", file);
+    formData.append("title", file.name);
+    console.log("file name", file.name);
 
     try {
       const response = await axios.post(

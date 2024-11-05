@@ -277,3 +277,14 @@ ValueError: `question` cannot be empty
 2024-10-28 13:18:32,323 - main - INFO - Uploaded file size: 705039 bytes
 2024-10-28 13:18:32,418 - main - INFO - Extracted text length: 20120 characters
 2024-10-28 13:18:32,422 - main - INFO - Document uploaded with ID: 19
+2024-10-28 13:22:31,166 - main - INFO - Uploaded file size: 631665 bytes
+2024-10-28 13:22:31,265 - main - INFO - Extracted text length: 11454 characters
+2024-10-28 13:22:31,270 - main - INFO - Document uploaded with ID: 20
+2024-11-04 23:36:15,886 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2024-11-04 23:36:15,886 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2024-11-05 13:09:50,008 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2024-11-05 13:09:50,008 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2024-11-05 13:14:26,955 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2024-11-05 13:14:26,957 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2024-11-05 13:14:45,107 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2024-11-05 13:14:45,107 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
