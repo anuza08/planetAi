@@ -4,6 +4,10 @@
 <img src="https://github.com/user-attachments/assets/34c9f975-7401-409e-9479-eb04caf239c1" alt="Screenshot 2024-10-27 212211" width="500"/>
 <img src="https://github.com/user-attachments/assets/3cae8018-02c1-4700-bd3b-acf4918a922a" alt="Screenshot 2024-10-27 212211" width="500"/>
 
+## Added loader for enhancing user experience
+<img src="https://github.com/user-attachments/assets/a0a24373-7505-444a-b3a7-492dad361b08" alt="Screenshot 2024-10-27 212211" width="500"/>
+
+
 **Q&A Planet** is a AI platform where you can upload any document and ask question related to it
 
 ## 🛠 Technologies used 
