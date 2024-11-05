@@ -317,3 +317,9 @@ ValueError: `question` cannot be empty
 2024-11-05 13:30:04,571 - main - INFO - Uploaded file size: 1321225 bytes
 2024-11-05 13:30:04,578 - main - INFO - Extracted text length: 372 characters
 2024-11-05 13:30:04,589 - main - INFO - Document uploaded with ID: 26
+2024-11-05 13:33:01,984 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2024-11-05 13:33:01,984 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2024-11-05 13:33:22,488 - main - INFO - Received title: pract5 screenshot1.pdf
+2024-11-05 13:33:22,495 - main - INFO - Uploaded file size: 1321225 bytes
+2024-11-05 13:33:22,514 - main - INFO - Extracted text length: 372 characters
+2024-11-05 13:33:22,537 - main - INFO - Document uploaded with ID: 27
