@@ -1,7 +1,7 @@
 # 🌌 Q&A Planet
 
 
-https://github.com/user-attachments/assets/0d39e5e6-9658-4cdd-9782-8d08c6fdaaff
+https://github.com/user-attachments/assets/0a671cc5-3f7f-4318-871f-b8eb19d26a0d
 
 <img src="https://github.com/user-attachments/assets/b276b74b-c6be-49e2-9f41-39b655f615fa" alt="Screenshot 2024-10-27 212211" width="500"/>
 <img src="https://github.com/user-attachments/assets/949a21cf-6e9e-48d0-bc7c-8873e0e70987" alt="Screenshot 2024-10-27 212211" width="500"/>
