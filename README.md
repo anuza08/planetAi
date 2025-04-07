@@ -1,4 +1,8 @@
 # 🌌 Q&A Planet
+
+
+https://github.com/user-attachments/assets/0d39e5e6-9658-4cdd-9782-8d08c6fdaaff
+
 <img src="https://github.com/user-attachments/assets/b276b74b-c6be-49e2-9f41-39b655f615fa" alt="Screenshot 2024-10-27 212211" width="500"/>
 <img src="https://github.com/user-attachments/assets/949a21cf-6e9e-48d0-bc7c-8873e0e70987" alt="Screenshot 2024-10-27 212211" width="500"/>
 <img src="https://github.com/user-attachments/assets/34c9f975-7401-409e-9479-eb04caf239c1" alt="Screenshot 2024-10-27 212211" width="500"/>
@@ -10,139 +14,56 @@
 
 **Q&A Planet** is a AI platform where you can upload any document and ask question related to it
 
-## 🛠 Technologies used 
+In today's digital world, we often need to extract information from large documents quickly and accurately. Manually reading through lengthy PDFs to find answers to specific questions is time-consuming and inefficient. This system solves that problem by allowing users to:
 
-### Frontend Framework
-- **ReactJs**: For building the user interface.
-- **VueJs**: For additional components and interactivity.
+Upload PDF documents
 
-### Backend Framework
-- **FastAPI**: For building the API efficiently.
-- **Python**: The programming language used for the backend.
+Ask natural language questions about the content
 
-### Data Validation and Parsing
-- **Pydantic**: For validating request and response data.
+Get accurate answers extracted by an AI model
 
-### CORS Handling
-- **CORS Middleware from FastAPI**: To enable cross-origin resource sharing.
+<h2>Solution Overview</h2>
+This application uses the FLAN-T5 large language model to provide question-answering capabilities for uploaded PDF documents. The system:
 
-### File Handling
-- **PyMuPDF**: For processing PDF files.
+Processes uploaded PDFs to extract text
 
-### Text Processing
-- **LangChain**: For text splitting and handling large documents.
-- **Hugging Face Transformers**: For natural language processing tasks.
-- **Sentence Transformers**: For embedding sentences and retrieving contextual information.
+Creates searchable vector embeddings of the content
 
-### Database Management
-- **SQLAlchemy ORM**: For database interactions and object-relational mapping.
+Uses semantic search to find relevant passages
 
-## 📥 Installation
+Generates accurate answers to user questions
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-Copy the proejct url
+**Key Features**
+PDF Upload: Users can upload any PDF document
 
-<h4>Frontend</h4>
+Document Management: System stores and organizes uploaded documents
 
-```bash
-cd ./frontend
-```
-```bash
-npm install
-```
-and the frontend server will start
+Question Answering: Users can ask natural language questions about document content
 
-<h4>Backend Server</h4>
+Conversation History: All questions and answers are saved for future reference
 
-```bash
-cd ./backend
-```
+Fast Semantic Search: Uses FAISS for efficient vector similarity search
 
-To install all the dependencies
-```bash
-pip install fastapi uvicorn sqlalchemy pymupdf langchain transformers sentence-transformers fastapi[all]
-```
-To run the backend server 
-```bash
-uvicorn main:app --reload
-```
+**Technology Stack**
+<h2>Backend</h2>
+FastAPI: Python web framework for building the API
 
-the server will run at port 
-```bash
-http://127.0.0.1:8000/docs#/
-```
+PyMuPDF (fitz): PDF text extraction library
 
-## 📡 API Documentation
-## BASE URL 
-http://localhost:8000
+SQLAlchemy: ORM for database operations
 
-<h3> 🚀 Endpoints</h3>
+FAISS: Vector similarity search library from Facebook AI
 
-### 1. Upload PDF Document
+<h2>AI/ML Components</h2>
+FLAN-T5-large: Google's instruction-tuned language model for question answering
 
-- **Endpoint:** `/upload_pdf`
-- **Method:** `POST`
-- **Description:** Upload a PDF file to the server for processing.
+HuggingFace Transformers: For model loading and inference
 
-#### Request
+Sentence Transformers: For creating document embeddings (all-MiniLM-L6-v2 model)
 
-- **Headers:**
-  - `Content-Type`: `multipart/form-data`
+<h2>Infrastructure</h2>
+SQLite: Lightweight database for storing documents and QA pairs
 
-- **Body:**
-  - `file`: The PDF file to be uploaded (required).
+PyTorch: Deep learning framework for model inference
 
-#### Response
-
-- **Status Code:** `200 OK`
-- **Response Body:**
-  ```json
-  {
-    "document_id": "string" // The ID of the uploaded document.
-  }
-
-
-### 2. Ask a Question
-
-- **Endpoint:** `/ask_question`
-- **Method:** `POST`
-- **Description:** Submit a question related to the uploaded document and receive an answer.
-
-#### Request
-
-- **Headers:**
-  - `Content-Type`: `application/json`
-
-- **Body:**
-  - `document_id`: The ID of the document to ask questions about.
-  - `question`: The question to be asked.
- 
-  #### Response
-- **Status Code:** `200 OK`
-- **Response Body:**
-  ```json
-  {
-    "answer": "string" // The answer to the asked question.
-  }
-
-### 3. Get Document Questions
-
-- **Endpoint:** `/document/{document_id}/questions`
-- **Method:** `GET`
-- **Description:** Retrieve a list of questions and answers associated with a specific document.
-
-#### Request
-
-- **Path Parameters:**
-  - `document_id`: The ID of the document for which questions are retrieved (required).
-
-  #### Response
-- **Status Code:** `200 OK`
-- **Response Body:**
-  ```json
-  [
-    {
-      "question": "string", // The question asked.
-       "answer": "string"     // The answer provided.
-     }
-  ] 
+CUDA: GPU acceleration (if available)
