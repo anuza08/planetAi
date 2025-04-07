@@ -6,11 +6,6 @@ https://github.com/user-attachments/assets/0a671cc5-3f7f-4318-871f-b8eb19d26a0d
 <img src="https://github.com/user-attachments/assets/b276b74b-c6be-49e2-9f41-39b655f615fa" alt="Screenshot 2024-10-27 212211" width="500"/>
 <img src="https://github.com/user-attachments/assets/949a21cf-6e9e-48d0-bc7c-8873e0e70987" alt="Screenshot 2024-10-27 212211" width="500"/>
 <img src="https://github.com/user-attachments/assets/34c9f975-7401-409e-9479-eb04caf239c1" alt="Screenshot 2024-10-27 212211" width="500"/>
-<img src="https://github.com/user-attachments/assets/3cae8018-02c1-4700-bd3b-acf4918a922a" alt="Screenshot 2024-10-27 212211" width="500"/>
-
-## Added loader for enhancing user experience
-<img src="https://github.com/user-attachments/assets/a0a24373-7505-444a-b3a7-492dad361b08" alt="Screenshot 2024-10-27 212211" width="500"/>
-
 
 **Q&A Planet** is a AI platform where you can upload any document and ask question related to it
 
